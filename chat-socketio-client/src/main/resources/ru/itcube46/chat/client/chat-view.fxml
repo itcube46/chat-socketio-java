@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/"
+            fx:controller="ru.itcube46.chat.client.ChatController">
+    <center>
+        <ScrollPane fx:id="scrollPane" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </BorderPane.margin>
+
+            <TextFlow fx:id="chatFlow"/>
+        </ScrollPane>
+    </center>
+    <right>
+        <VBox spacing="2.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </BorderPane.margin>
+
+            <Label text="Username:" styleClass="lbl,lbl-primary"/>
+            <TextField fx:id="nameField" promptText="Name"/>
+
+            <Label text="Room:" styleClass="lbl,lbl-primary"/>
+            <TextField fx:id="roomField" promptText="Room"/>
+
+            <HBox alignment="CENTER" focusTraversable="true" prefHeight="40.0" spacing="2.0">
+                <Button fx:id="connectButton" mnemonicParsing="false"
+                        onAction="#connect" prefWidth="90.0" text="Connect"
+                        styleClass="btn,btn-primary,btn-sm"/>
+
+                <Button fx:id="disconnectButton" mnemonicParsing="false"
+                        onAction="#disconnect" prefWidth="90.0" text="Disconnect"
+                        styleClass="btn,btn-primary,btn-sm"/>
+            </HBox>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" focusTraversable="true" spacing="2.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </BorderPane.margin>
+
+            <TextField fx:id="messageField" promptText="Message" HBox.hgrow="ALWAYS" prefHeight="26.0"/>
+
+            <Button fx:id="sendButton" mnemonicParsing="false"
+                    onAction="#send" text="Send"
+                    styleClass="btn,btn-primary,btn-sm"/>
+        </HBox>
+    </bottom>
+</BorderPane>
